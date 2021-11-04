@@ -35,7 +35,7 @@ const Home: NextPage = () => {
             <h1 className="text-3xl font-bold text-gray-800">
               Fall Limited Edition Sneakers
             </h1>
-            <p className="text-gray-500 text-sm leading-loose">
+            <p className="text-gray-500 text-sm leading-relaxed">
               These low-profile sneakers are your perfect casual wear companion.
               Featuring a durable rubber outer sole, they&apos;ll withstand
               everything the weather can offer.
