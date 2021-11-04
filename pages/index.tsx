@@ -9,9 +9,20 @@ import { SidebarContext } from '@context/sidebar';
 import React, { useState } from 'react';
 import { PrimaryButton } from '@components/PrimaryButton';
 import CartBasket from '@components/CartBasket';
+import { CartBasketContext } from '@context/cart-basket';
 
 const Home: NextPage = () => {
   const [sideBarShown, showSidebar] = useState(false);
+  const [cartBasketShown, showCartBasket] = useState(false);
+
+  const CartBasketOverlay = () => (
+    <div
+      className={`${!cartBasketShown && 'hidden'} fixed h-screen w-screen`}
+      onClick={() => {
+        if (cartBasketShown) showCartBasket(false);
+      }}
+    ></div>
+  );
 
   return (
     <div className="font-kumbh mb-7 relative">
@@ -31,13 +42,18 @@ const Home: NextPage = () => {
           rel="stylesheet"
         />
       </Head>
-      <SidebarContext.Provider
-        value={{ shown: sideBarShown, setShown: showSidebar }}
+      <CartBasketContext.Provider
+        value={{ shown: cartBasketShown, setShown: showCartBasket }}
       >
-        <Navbar />
-        <Sidebar />
-        <CartBasket />
-      </SidebarContext.Provider>
+        <SidebarContext.Provider
+          value={{ shown: sideBarShown, setShown: showSidebar }}
+        >
+          <CartBasketOverlay />
+          <Navbar />
+          <Sidebar />
+          <CartBasket />
+        </SidebarContext.Provider>
+      </CartBasketContext.Provider>
       <main>
         <Carousel />
         <div className="p-6">
