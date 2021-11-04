@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         <Carousel />
         <div className="p-6">
           <div className="space-y-3">
-            <h2 className="uppercase font-bold text-yellow-500 tracking-wider">
+            <h2 className="uppercase font-bold text-yellow-500 tracking-widest text-sm">
               Sneaker Company
             </h2>
             <h1 className="text-3xl font-bold">
