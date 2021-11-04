@@ -5,13 +5,19 @@ import Carousel from '@components/Carousel';
 import ItemCounter from '@components/ItemCounter';
 import { CartIcon } from '@components/CartIcon';
 import Sidebar from '@components/Sidebar';
-import React, { useState } from 'react';
+import React, { createContext, Dispatch, useReducer, useState } from 'react';
 import { PrimaryButton } from '@components/PrimaryButton';
 import CartBasket from '@components/CartBasket';
+import { GlobalStateContext, storeReducer } from '@context/reducer';
 
 const Home: NextPage = () => {
   const [sideBarShown, showSidebar] = useState(false);
   const [cartBasketShown, showCartBasket] = useState(false);
+
+  const [state, dispatch] = useReducer(storeReducer, {
+    items: [],
+    currentCount: 0,
+  });
 
   const CartBasketOverlay = () => (
     <div
@@ -41,28 +47,30 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      {cartBasketShown && <CartBasketOverlay />}
-      {sideBarShown && <Sidebar setShown={showSidebar} />}
-      {cartBasketShown && <CartBasket />}
-      <Navbar
-        cartBasketShown={cartBasketShown}
-        showSidebar={showSidebar}
-        showCartBasket={showCartBasket}
-      />
-      <main>
-        <Carousel />
-        <div className="p-6">
-          <ProductDescription />
-          <ProductPrices />
-          <ItemCounter />
-          <PrimaryButton>
-            <CartIcon fillColor="white" />
-            <span className="font-bold text-white tracking-wide">
-              Add to cart
-            </span>
-          </PrimaryButton>
-        </div>
-      </main>
+      <GlobalStateContext.Provider value={{ state, dispatch }}>
+        {cartBasketShown && <CartBasketOverlay />}
+        {sideBarShown && <Sidebar setShown={showSidebar} />}
+        {cartBasketShown && <CartBasket />}
+        <Navbar
+          cartBasketShown={cartBasketShown}
+          showSidebar={showSidebar}
+          showCartBasket={showCartBasket}
+        />
+        <main>
+          <Carousel />
+          <div className="p-6">
+            <ProductDescription />
+            <ProductPrices />
+            <ItemCounter />
+            <PrimaryButton>
+              <CartIcon fillColor="white" />
+              <span className="font-bold text-white tracking-wide">
+                Add to cart
+              </span>
+            </PrimaryButton>
+          </div>
+        </main>
+      </GlobalStateContext.Provider>
     </div>
   );
 };
