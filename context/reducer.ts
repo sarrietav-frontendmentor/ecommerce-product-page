@@ -9,7 +9,10 @@ export const storeReducer = (state: RootState, action: Action): RootState => {
         typeof action.payload === 'number'
       )
         throw new Error('Must be a CartItem');
-      return { ...state, items: insertItem(state.items, action.payload) };
+      return {
+        currentCount: 0,
+        items: insertItem(state.items, action.payload),
+      };
     case 'Delete':
       if (typeof action.payload !== 'number')
         throw new Error('Must be a number');

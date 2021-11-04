@@ -62,7 +62,20 @@ const Home: NextPage = () => {
             <ProductDescription />
             <ProductPrices />
             <ItemCounter />
-            <PrimaryButton>
+            <PrimaryButton
+              onClick={() => {
+                dispatch({
+                  type: 'Insert',
+                  payload: {
+                    id: state.items.length,
+                    image: '/image-product-1.jpg',
+                    name: 'Autumn Limited Edition Sneakers',
+                    price: 125.0,
+                    quantity: state.currentCount,
+                  },
+                });
+              }}
+            >
               <CartIcon fillColor="white" />
               <span className="font-bold text-white tracking-wide">
                 Add to cart
