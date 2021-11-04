@@ -5,11 +5,9 @@ import Carousel from '@components/Carousel';
 import ItemCounter from '@components/ItemCounter';
 import { CartIcon } from '@components/CartIcon';
 import Sidebar from '@components/Sidebar';
-import { SidebarContext } from '@context/sidebar';
 import React, { useState } from 'react';
 import { PrimaryButton } from '@components/PrimaryButton';
 import CartBasket from '@components/CartBasket';
-import { CartBasketContext } from '@context/cart-basket';
 
 const Home: NextPage = () => {
   const [sideBarShown, showSidebar] = useState(false);
@@ -42,18 +40,15 @@ const Home: NextPage = () => {
           rel="stylesheet"
         />
       </Head>
-      <CartBasketContext.Provider
-        value={{ shown: cartBasketShown, setShown: showCartBasket }}
-      >
-        <SidebarContext.Provider
-          value={{ shown: sideBarShown, setShown: showSidebar }}
-        >
-          {cartBasketShown && <CartBasketOverlay />}
-          <Navbar />
-          <Sidebar />
-          {cartBasketShown && <CartBasket />}
-        </SidebarContext.Provider>
-      </CartBasketContext.Provider>
+
+      {cartBasketShown && <CartBasketOverlay />}
+      {sideBarShown && <Sidebar setShown={showSidebar} />}
+      {cartBasketShown && <CartBasket />}
+      <Navbar
+        cartBasketShown={cartBasketShown}
+        showSidebar={showSidebar}
+        showCartBasket={showCartBasket}
+      />
       <main>
         <Carousel />
         <div className="p-6">

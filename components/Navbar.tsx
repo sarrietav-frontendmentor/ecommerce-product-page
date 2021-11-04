@@ -1,35 +1,31 @@
-import { CartBasketContext } from '@context/cart-basket';
-import { SidebarContext } from '@context/sidebar';
 import Image from 'next/image';
-import { MouseEventHandler, useContext } from 'react';
+import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
 import { CartIcon } from './CartIcon';
 
-const Navbar = () => {
-  const sidebarContext = useContext(SidebarContext);
-  const cartBasketContext = useContext(CartBasketContext);
-
-  return (
-    <nav className="w-full flex justify-between items-center  px-7 py-6">
-      <div className="flex items-center space-x-4">
-        <MenuIcon onClick={() => sidebarContext.setShown(true)} />
-        <Logo />
-      </div>
-      <div className="flex items-center">
-        <CartIcon
-          className="mr-4"
-          fillColor="gray"
-          onClick={() => cartBasketContext.setShown(!cartBasketContext.shown)}
-        />
-        <Image
-          src="/image-avatar.png"
-          alt="User avatar"
-          height={25}
-          width={25}
-        />
-      </div>
-    </nav>
-  );
-};
+const Navbar = ({
+  showCartBasket,
+  showSidebar,
+  cartBasketShown,
+}: {
+  showCartBasket: Dispatch<SetStateAction<boolean>>;
+  showSidebar: Dispatch<SetStateAction<boolean>>;
+  cartBasketShown: boolean;
+}) => (
+  <nav className="w-full flex justify-between items-center  px-7 py-6">
+    <div className="flex items-center space-x-4">
+      <MenuIcon onClick={() => showSidebar(true)} />
+      <Logo />
+    </div>
+    <div className="flex items-center">
+      <CartIcon
+        className="mr-4"
+        fillColor="gray"
+        onClick={() => showCartBasket(!cartBasketShown)}
+      />
+      <Image src="/image-avatar.png" alt="User avatar" height={25} width={25} />
+    </div>
+  </nav>
+);
 
 export default Navbar;
 
