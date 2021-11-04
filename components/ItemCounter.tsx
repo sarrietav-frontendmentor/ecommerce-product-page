@@ -1,18 +1,19 @@
-import { MouseEventHandler, useState } from 'react';
+import { GlobalStateContext } from '@context/reducer';
+import { MouseEventHandler, useContext } from 'react';
 
 const ItemCounter = () => {
-  const [count, setCount] = useState(0);
+  const { state, dispatch } = useContext(GlobalStateContext);
 
   const handleMinusClick = () => {
-    if (count - 1 < 0) return;
-    setCount(count - 1);
+    if (state.currentCount - 1 < 0) return;
+    dispatch({ type: 'DecrementCount' });
   };
 
   return (
     <div className="w-full flex justify-between items-center p-4 bg-red-300 bg-opacity-10 rounded-xl">
       <MinusIcon onClick={handleMinusClick} />
-      <span className="font-bold">{count}</span>
-      <PlusIcon onClick={() => setCount(count + 1)} />
+      <span className="font-bold">{state.currentCount}</span>
+      <PlusIcon onClick={() => dispatch({ type: 'IncrementCount' })} />
     </div>
   );
 };
