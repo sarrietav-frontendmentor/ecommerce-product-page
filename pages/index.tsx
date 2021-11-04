@@ -5,7 +5,7 @@ import Carousel from '@components/Carousel';
 import ItemCounter from '@components/ItemCounter';
 import { CartIcon } from '@components/CartIcon';
 import Sidebar from '@components/Sidebar';
-import { SidebarContext } from 'context/sidebar';
+import { SidebarContext } from '@context/sidebar';
 import { useState } from 'react';
 
 const Home: NextPage = () => {

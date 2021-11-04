@@ -1,5 +1,5 @@
-import { SidebarContext } from 'context/sidebar';
-import { MouseEventHandler, useContext, useState } from 'react';
+import { SidebarContext } from '@context/sidebar';
+import { MouseEventHandler, useContext } from 'react';
 
 const CloseIcon = ({
   className,

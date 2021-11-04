@@ -1,4 +1,4 @@
-import { SidebarContext } from 'context/sidebar';
+import { SidebarContext } from '@context/sidebar';
 import Image from 'next/image';
 import { MouseEventHandler, useContext } from 'react';
 import { CartIcon } from './CartIcon';
