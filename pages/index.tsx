@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import Navbar from '@components/Navbar';
 import Carousel from '@components/Carousel';
+import ItemCounter from '@components/ItemCounter';
 
 const Home: NextPage = () => {
   return (
@@ -46,6 +47,7 @@ const Home: NextPage = () => {
             </span>
             <span className="font-bold text-gray-300 ml-auto">$250.00</span>
           </div>
+          <ItemCounter />
         </div>
       </main>
     </div>
