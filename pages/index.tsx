@@ -49,7 +49,7 @@ const Home: NextPage = () => {
             <span className="font-bold text-gray-300 ml-auto">$250.00</span>
           </div>
           <ItemCounter />
-          <button className="bg-yellow-600 brightness-110 flex justify-center items-center w-full rounded-lg py-3 space-x-3 my-4 shadow-xl">
+          <button className="bg-yellow-600 brightness-110 flex justify-center items-center w-full rounded-lg py-4 space-x-3 my-4 shadow-xl">
             <CartIcon fillColor="white" />
             <span className="font-bold text-white tracking-wide">
               Add to cart
