@@ -2,11 +2,12 @@ import { MouseEventHandler } from 'react';
 
 const Sidebar = ({ setShown }: { setShown: (shown: boolean) => void }) => {
   return (
-    <div
-      className="w-full h-full fixed top-0 bg-black bg-opacity-70 z-10"
-      onClick={() => setShown(false)}
-    >
-      <nav className="h-full w-8/12 fixed top-0  bg-white p-6">
+    <>
+      <div
+        className="w-full h-full fixed top-0 bg-black bg-opacity-70 z-10"
+        onClick={() => setShown(false)}
+      ></div>
+      <nav className="h-full w-8/12 fixed top-0 z-20 bg-white p-6">
         <CloseIcon className="mb-14" onClick={() => setShown(false)} />
         <ul className="list-none space-y-6">
           <li>
@@ -36,7 +37,7 @@ const Sidebar = ({ setShown }: { setShown: (shown: boolean) => void }) => {
           </li>
         </ul>
       </nav>
-    </div>
+    </>
   );
 };
 
