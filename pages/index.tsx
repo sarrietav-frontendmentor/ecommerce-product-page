@@ -6,7 +6,8 @@ import ItemCounter from '@components/ItemCounter';
 import { CartIcon } from '@components/CartIcon';
 import Sidebar from '@components/Sidebar';
 import { SidebarContext } from '@context/sidebar';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { PrimaryButton } from '@components/PrimaryButton';
 
 const Home: NextPage = () => {
   const [sideBarShown, showSidebar] = useState(false);
@@ -38,33 +39,15 @@ const Home: NextPage = () => {
       <main>
         <Carousel />
         <div className="p-6">
-          <div className="space-y-3">
-            <h2 className="uppercase font-bold text-yellow-600 tracking-widest text-sm">
-              Sneaker Company
-            </h2>
-            <h1 className="text-3xl font-bold text-gray-800">
-              Fall Limited Edition Sneakers
-            </h1>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              These low-profile sneakers are your perfect casual wear companion.
-              Featuring a durable rubber outer sole, they&apos;ll withstand
-              everything the weather can offer.
-            </p>
-          </div>
-          <div className="flex items-center my-5">
-            <span className="text-2xl font-bold text-gray-800">$125.00</span>
-            <span className="bg-yellow-500 bg-opacity-25 text-yellow-600 font-bold flex items-center self-center rounded px-2 ml-5">
-              50%
-            </span>
-            <span className="font-bold text-gray-300 ml-auto line-through">$250.00</span>
-          </div>
+          <ProductDescription />
+          <ProductPrices />
           <ItemCounter />
-          <button className="bg-yellow-600 brightness-110 flex justify-center items-center w-full rounded-lg py-4 space-x-3 my-4 shadow-xl">
+          <PrimaryButton>
             <CartIcon fillColor="white" />
             <span className="font-bold text-white tracking-wide">
               Add to cart
             </span>
-          </button>
+          </PrimaryButton>
         </div>
       </main>
     </div>
@@ -72,3 +55,31 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+const ProductDescription = () => (
+  <div className="space-y-3">
+    <h2 className="uppercase font-bold text-yellow-600 tracking-widest text-sm">
+      Sneaker Company
+    </h2>
+    <h1 className="text-3xl font-bold text-gray-800">
+      Fall Limited Edition Sneakers
+    </h1>
+    <p className="text-gray-500 text-sm leading-relaxed">
+      These low-profile sneakers are your perfect casual wear companion.
+      Featuring a durable rubber outer sole, they&apos;ll withstand everything
+      the weather can offer.
+    </p>
+  </div>
+);
+
+const ProductPrices = () => (
+  <div className="flex items-center my-5">
+    <span className="text-2xl font-bold text-gray-800">$125.00</span>
+    <span className="bg-yellow-500 bg-opacity-25 text-yellow-600 font-bold flex items-center self-center rounded px-2 ml-5">
+      50%
+    </span>
+    <span className="font-bold text-gray-300 ml-auto line-through">
+      $250.00
+    </span>
+  </div>
+);
