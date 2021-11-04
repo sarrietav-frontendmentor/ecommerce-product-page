@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             <span className="bg-yellow-500 bg-opacity-25 text-yellow-600 font-bold flex items-center self-center rounded px-2 ml-5">
               50%
             </span>
-            <span className="font-bold text-gray-300 ml-auto">$250.00</span>
+            <span className="font-bold text-gray-300 ml-auto line-through">$250.00</span>
           </div>
           <ItemCounter />
           <button className="bg-yellow-600 brightness-110 flex justify-center items-center w-full rounded-lg py-4 space-x-3 my-4 shadow-xl">
