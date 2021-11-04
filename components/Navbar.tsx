@@ -23,7 +23,7 @@ const Logo = () => (
 
 const Navbar = () => {
   return (
-    <nav className="w-full flex justify-between items-center  px-7 py-5">
+    <nav className="w-full flex justify-between items-center  px-7 py-6">
       <div className="flex items-center space-x-4">
         <MenuIcon />
         <Logo />
