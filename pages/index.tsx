@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 
   const CartBasketOverlay = () => (
     <div
-      className={`${!cartBasketShown && 'hidden'} fixed h-screen w-screen`}
+      className="fixed h-screen w-screen"
       onClick={() => {
         if (cartBasketShown) showCartBasket(false);
       }}
@@ -48,10 +48,10 @@ const Home: NextPage = () => {
         <SidebarContext.Provider
           value={{ shown: sideBarShown, setShown: showSidebar }}
         >
-          <CartBasketOverlay />
+          {cartBasketShown && <CartBasketOverlay />}
           <Navbar />
           <Sidebar />
-          <CartBasket />
+          {cartBasketShown && <CartBasket />}
         </SidebarContext.Provider>
       </CartBasketContext.Provider>
       <main>
