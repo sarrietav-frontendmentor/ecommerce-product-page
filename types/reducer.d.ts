@@ -11,15 +11,7 @@ export interface CartItem {
   quantity: number;
 }
 
-export enum ActionKind {
-  Insert,
-  Delete,
-  Checkout,
-  IncrementCount,
-  DecrementCount,
-}
-
 export interface Action {
-  type: ActionKind;
+  type: 'Insert' | 'Delete' | 'Checkout' | 'IncrementCount' | 'DecrementCount';
   payload?: CartItem | number;
 }

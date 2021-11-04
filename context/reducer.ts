@@ -1,24 +1,24 @@
 import { createContext, Dispatch } from 'react';
-import { Action, ActionKind, CartItem, RootState } from 'types/reducer';
+import { Action, CartItem, RootState } from 'types/reducer';
 
 export const storeReducer = (state: RootState, action: Action): RootState => {
   switch (action.type) {
-    case ActionKind.Insert:
+    case 'Insert':
       if (
         typeof action.payload === 'undefined' ||
         typeof action.payload === 'number'
       )
         throw new Error('Must be a CartItem');
       return { ...state, items: insertItem(state.items, action.payload) };
-    case ActionKind.Delete:
+    case 'Delete':
       if (typeof action.payload !== 'number')
         throw new Error('Must be a number');
       return { ...state, items: deleteItem(state.items, action.payload) };
-    case ActionKind.Checkout:
+    case 'Checkout':
       return { ...state, items: [] };
-    case ActionKind.IncrementCount:
+    case 'IncrementCount':
       return { ...state, currentCount: state.currentCount + 1 };
-    case ActionKind.DecrementCount:
+    case 'DecrementCount':
       return { ...state, currentCount: state.currentCount - 1 };
     default:
       throw new Error();
