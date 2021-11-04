@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Navbar from '@components/Navbar';
 import Carousel from '@components/Carousel';
 import ItemCounter from '@components/ItemCounter';
+import { CartIcon } from '@components/CartIcon';
 
 const Home: NextPage = () => {
   return (
@@ -40,14 +41,20 @@ const Home: NextPage = () => {
               everything the weather can offer.
             </p>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center my-5">
             <span className="text-2xl font-bold">$125.00</span>
-            <span className="bg-yellow-500 bg-opacity-25 text-yellow-500 font-bold flex items-center self-center rounded px-2 ml-5">
+            <span className="bg-yellow-500 bg-opacity-25 text-yellow-600 font-bold flex items-center self-center rounded px-2 ml-5">
               50%
             </span>
             <span className="font-bold text-gray-300 ml-auto">$250.00</span>
           </div>
           <ItemCounter />
+          <button className="bg-yellow-600 brightness-110 flex justify-center items-center w-full rounded-lg py-3 space-x-3 my-4 shadow-xl">
+            <CartIcon fillColor="white" />
+            <span className="font-bold text-white tracking-wide">
+              Add to cart
+            </span>
+          </button>
         </div>
       </main>
     </div>
