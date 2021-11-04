@@ -1,9 +1,31 @@
-const MinusIcon = () => (
+import { MouseEventHandler, useState } from 'react';
+
+const ItemCounter = () => {
+  const [count, setCount] = useState(0);
+
+  const handleMinusClick = () => {
+    if (count - 1 < 0) return;
+    setCount(count - 1);
+  };
+
+  return (
+    <div className="w-full flex justify-between items-center p-4 bg-red-300 bg-opacity-10 rounded-xl">
+      <MinusIcon onClick={handleMinusClick} />
+      <span className="font-bold">{count}</span>
+      <PlusIcon onClick={() => setCount(count + 1)} />
+    </div>
+  );
+};
+
+export default ItemCounter;
+
+const MinusIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
   <svg
     width="12"
     height="4"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
+    onClick={onClick}
   >
     <defs>
       <path
@@ -15,12 +37,13 @@ const MinusIcon = () => (
   </svg>
 );
 
-const PlusIcon = () => (
+const PlusIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
   <svg
     width="12"
     height="12"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
+    onClick={onClick}
   >
     <defs>
       <path
@@ -31,13 +54,3 @@ const PlusIcon = () => (
     <use fill="#FF7E1B" fillRule="nonzero" xlinkHref="#b" />
   </svg>
 );
-
-const ItemCounter = () => (
-  <div className="w-full flex justify-between items-center p-4 bg-red-300 bg-opacity-10 rounded-xl">
-    <MinusIcon />
-    <span className="font-bold">0</span>
-    <PlusIcon />
-  </div>
-);
-
-export default ItemCounter;
