@@ -1,8 +1,15 @@
+import { SidebarContext } from 'context/sidebar';
 import Image from 'next/image';
+import { MouseEventHandler, useContext } from 'react';
 import { CartIcon } from './CartIcon';
 
-const MenuIcon = () => (
-  <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
+const MenuIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
+  <svg
+    width="16"
+    height="15"
+    xmlns="http://www.w3.org/2000/svg"
+    onClick={onClick}
+  >
     <path
       d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z"
       fill="#69707D"
@@ -22,10 +29,12 @@ const Logo = () => (
 );
 
 const Navbar = () => {
+  const { setShown } = useContext(SidebarContext);
+
   return (
     <nav className="w-full flex justify-between items-center  px-7 py-6">
       <div className="flex items-center space-x-4">
-        <MenuIcon />
+        <MenuIcon onClick={() => setShown(true)} />
         <Logo />
       </div>
       <div className="flex items-center">
