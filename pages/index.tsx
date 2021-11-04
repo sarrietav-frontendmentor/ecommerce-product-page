@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             <h2 className="uppercase font-bold text-yellow-500 tracking-widest text-sm">
               Sneaker Company
             </h2>
-            <h1 className="text-3xl font-bold">
+            <h1 className="text-3xl font-bold text-gray-800">
               Fall Limited Edition Sneakers
             </h1>
             <p className="text-gray-700">
@@ -42,7 +42,7 @@ const Home: NextPage = () => {
             </p>
           </div>
           <div className="flex items-center my-5">
-            <span className="text-2xl font-bold">$125.00</span>
+            <span className="text-2xl font-bold text-gray-800">$125.00</span>
             <span className="bg-yellow-500 bg-opacity-25 text-yellow-600 font-bold flex items-center self-center rounded px-2 ml-5">
               50%
             </span>
