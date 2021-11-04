@@ -33,8 +33,8 @@ const Navbar = () => {
         <Image
           src="/image-avatar.png"
           alt="User avatar"
-          height={37}
-          width={37}
+          height={25}
+          width={25}
         />
       </div>
     </nav>
