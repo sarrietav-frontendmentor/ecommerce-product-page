@@ -33,7 +33,7 @@ const PlusIcon = () => (
 );
 
 const ItemCounter = () => (
-  <div className="w-full flex justify-between items-center p-4 bg-yellow-600 bg-opacity-10 rounded-lg">
+  <div className="w-full flex justify-between items-center p-4 bg-red-300 bg-opacity-10 rounded-xl">
     <MinusIcon />
     <span className="font-bold">0</span>
     <PlusIcon />
