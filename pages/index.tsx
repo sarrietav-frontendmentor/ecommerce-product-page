@@ -4,6 +4,7 @@ import Navbar from '@components/Navbar';
 import Carousel from '@components/Carousel';
 import ItemCounter from '@components/ItemCounter';
 import { CartIcon } from '@components/CartIcon';
+import Sidebar from '@components/Sidebar';
 
 const Home: NextPage = () => {
   return (
@@ -57,6 +58,7 @@ const Home: NextPage = () => {
           </button>
         </div>
       </main>
+      <Sidebar />
     </div>
   );
 };
