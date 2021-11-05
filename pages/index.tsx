@@ -29,17 +29,19 @@ const Home: NextPage = () => {
     ></div>
   );
 
-  const handleAddToCart = () =>
-    dispatch({
-      type: 'Insert',
-      payload: {
-        id: v4(),
-        image: '/image-product-1.jpg',
-        name: 'Autumn Limited Edition Sneakers',
-        price: 125.0,
-        quantity: state.currentCount,
-      },
-    });
+  const handleAddToCart = () => {
+    if (state.currentCount > 0)
+      dispatch({
+        type: 'Insert',
+        payload: {
+          id: v4(),
+          image: '/image-product-1.jpg',
+          name: 'Autumn Limited Edition Sneakers',
+          price: 125.0,
+          quantity: state.currentCount,
+        },
+      });
+  };
 
   return (
     <div className="font-kumbh mb-7 relative">
