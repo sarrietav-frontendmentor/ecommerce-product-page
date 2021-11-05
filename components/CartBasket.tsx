@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { GlobalStateContext } from '@context/reducer';
-import { useContext } from 'react';
-import { CartItem } from 'types/reducer';
+import { Dispatch, MouseEventHandler, useContext } from 'react';
+import { Action, CartItem } from 'types/reducer';
 import { PrimaryButton } from './PrimaryButton';
 
 const CartBasket = () => {
@@ -17,11 +17,11 @@ const CartBasket = () => {
             <>
               <div className="max-h-28 overflow-scroll space-y-5">
                 {state.items.map((item) => (
-                  <BasketItem item={item} key={item.id} />
+                  <BasketItem item={item} key={item.id} dispatch={dispatch} />
                 ))}
               </div>
               <div className="mt-auto">
-                <PrimaryButton>
+                <PrimaryButton onClick={() => dispatch({ type: 'Checkout' })}>
                   <span className="text-white font-bold">Checkout</span>
                 </PrimaryButton>
               </div>
@@ -37,7 +37,13 @@ const CartBasket = () => {
 
 export default CartBasket;
 
-const BasketItem = ({ item }: { item: CartItem }) => (
+const BasketItem = ({
+  item,
+  dispatch,
+}: {
+  item: CartItem;
+  dispatch: Dispatch<Action>;
+}) => (
   <div className="flex items-center">
     <Image
       src={item.image}
@@ -55,17 +61,27 @@ const BasketItem = ({ item }: { item: CartItem }) => (
         </span>
       </p>
     </div>
-    <TrashIcon className="ml-auto" />
+    <TrashIcon
+      className="ml-auto"
+      onClick={() => dispatch({ type: 'Delete', payload: item.id })}
+    />
   </div>
 );
 
-const TrashIcon = ({ className }: { className?: string }) => (
+const TrashIcon = ({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick: MouseEventHandler;
+}) => (
   <svg
     width="14"
     height="16"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     className={className}
+    onClick={onClick}
   >
     <defs>
       <path
