@@ -1,4 +1,4 @@
-import { GlobalStateContext } from '@context/reducer';
+import { GlobalStateContext } from '@/context/reducer';
 import Image from 'next/image';
 import { Dispatch, MouseEventHandler, SetStateAction, useContext } from 'react';
 import { CartIcon } from './CartIcon';
