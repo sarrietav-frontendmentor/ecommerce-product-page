@@ -63,25 +63,27 @@ const Home: NextPage = () => {
             <ProductDescription />
             <ProductPrices />
             <ItemCounter />
-            <PrimaryButton
-              onClick={() => {
-                dispatch({
-                  type: 'Insert',
-                  payload: {
-                    id: v4(),
-                    image: '/image-product-1.jpg',
-                    name: 'Autumn Limited Edition Sneakers',
-                    price: 125.0,
-                    quantity: state.currentCount,
-                  },
-                });
-              }}
-            >
-              <CartIcon fillColor="white" />
-              <span className="font-bold text-white tracking-wide">
-                Add to cart
-              </span>
-            </PrimaryButton>
+            <div className="my-4">
+              <PrimaryButton
+                onClick={() => {
+                  dispatch({
+                    type: 'Insert',
+                    payload: {
+                      id: v4(),
+                      image: '/image-product-1.jpg',
+                      name: 'Autumn Limited Edition Sneakers',
+                      price: 125.0,
+                      quantity: state.currentCount,
+                    },
+                  });
+                }}
+              >
+                <CartIcon fillColor="white" />
+                <span className="font-bold text-white tracking-wide">
+                  Add to cart
+                </span>
+              </PrimaryButton>
+            </div>
           </div>
         </main>
       </GlobalStateContext.Provider>
