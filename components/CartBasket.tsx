@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { GlobalStateContext } from '@context/reducer';
 import { useContext } from 'react';
 import { CartItem } from 'types/reducer';
+import { PrimaryButton } from './PrimaryButton';
 
 const CartBasket = () => {
   const { state, dispatch } = useContext(GlobalStateContext);
@@ -13,12 +14,19 @@ const CartBasket = () => {
       <div className="rounded-xl absolute w-[95%] h-72 top-20 z-10 bg-white flex flex-col justify-start shadow-lg">
         <h2 className="font-bold text-lg m-5">Cart</h2>
         <hr className="text-gray-300" />
-        <div className="p-5 flex flex-col flex-grow">
+        <div className="p-5 flex flex-col flex-grow last:justify-self-end">
           {items.length !== 0 ? (
             <>
-              {items.map((item) => (
-                <BasketItem item={item} key={item.id} />
-              ))}
+              <div className="max-h-28 overflow-scroll space-y-5">
+                {items.map((item) => (
+                  <BasketItem item={item} key={item.id} />
+                ))}
+              </div>
+              <div className="mt-auto">
+                <PrimaryButton>
+                  <span className="text-white font-bold">Checkout</span>
+                </PrimaryButton>
+              </div>
             </>
           ) : (
             <CartEmpty />
@@ -30,12 +38,6 @@ const CartBasket = () => {
 };
 
 export default CartBasket;
-
-const CartEmpty = () => (
-  <div className="flex-grow flex flex-col justify-center items-center">
-    <p className="font-bold text-gray-500">Your cart is empty.</p>
-  </div>
-);
 
 const BasketItem = ({ item }: { item: CartItem }) => (
   <div className="flex items-center">
@@ -75,4 +77,10 @@ const TrashIcon = ({ className }: { className?: string }) => (
     </defs>
     <use fill="#C3CAD9" fillRule="nonzero" xlinkHref="#a" />
   </svg>
+);
+
+const CartEmpty = () => (
+  <div className="flex-grow flex flex-col justify-center items-center">
+    <p className="font-bold text-gray-500">Your cart is empty.</p>
+  </div>
 );
