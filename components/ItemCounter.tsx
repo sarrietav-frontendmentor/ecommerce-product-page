@@ -1,4 +1,4 @@
-import { GlobalStateContext } from '@context/reducer';
+import { GlobalStateContext } from '@/context/reducer';
 import { MouseEventHandler, useContext } from 'react';
 
 const ItemCounter = () => {
