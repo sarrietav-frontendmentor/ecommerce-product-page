@@ -1,5 +1,6 @@
+import { GlobalStateContext } from '@context/reducer';
 import Image from 'next/image';
-import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
+import { Dispatch, MouseEventHandler, SetStateAction, useContext } from 'react';
 import { CartIcon } from './CartIcon';
 
 const Navbar = ({
@@ -17,11 +18,14 @@ const Navbar = ({
       <Logo />
     </div>
     <div className="flex items-center">
-      <CartIcon
-        className="mr-4"
-        fillColor="gray"
-        onClick={() => showCartBasket(!cartBasketShown)}
-      />
+      <div className="relative">
+        <ToolTip />
+        <CartIcon
+          className="mr-4"
+          fillColor="gray"
+          onClick={() => showCartBasket(!cartBasketShown)}
+        />
+      </div>
       <Image src="/image-avatar.png" alt="User avatar" height={25} width={25} />
     </div>
   </nav>
@@ -53,3 +57,17 @@ const Logo = () => (
     />
   </svg>
 );
+
+const ToolTip = () => {
+  const { state } = useContext(GlobalStateContext);
+
+  return (
+    <span
+      className={`absolute -top-1 right-3 bg-yellow-600 text-white text-xs leading-none px-1.5 rounded-lg ${
+        state.items.length === 0 ? 'hidden' : ''
+      }`}
+    >
+      {state.items.length}
+    </span>
+  );
+};
