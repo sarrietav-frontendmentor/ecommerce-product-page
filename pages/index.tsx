@@ -29,6 +29,18 @@ const Home: NextPage = () => {
     ></div>
   );
 
+  const handleAddToCart = () =>
+    dispatch({
+      type: 'Insert',
+      payload: {
+        id: v4(),
+        image: '/image-product-1.jpg',
+        name: 'Autumn Limited Edition Sneakers',
+        price: 125.0,
+        quantity: state.currentCount,
+      },
+    });
+
   return (
     <div className="font-kumbh mb-7 relative">
       <Head>
@@ -64,20 +76,7 @@ const Home: NextPage = () => {
             <ProductPrices />
             <ItemCounter />
             <div className="my-4">
-              <PrimaryButton
-                onClick={() => {
-                  dispatch({
-                    type: 'Insert',
-                    payload: {
-                      id: v4(),
-                      image: '/image-product-1.jpg',
-                      name: 'Autumn Limited Edition Sneakers',
-                      price: 125.0,
-                      quantity: state.currentCount,
-                    },
-                  });
-                }}
-              >
+              <PrimaryButton onClick={handleAddToCart}>
                 <CartIcon fillColor="white" />
                 <span className="font-bold text-white tracking-wide">
                   Add to cart
