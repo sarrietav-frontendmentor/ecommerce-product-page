@@ -5,10 +5,11 @@ import Carousel from '@components/Carousel';
 import ItemCounter from '@components/ItemCounter';
 import { CartIcon } from '@components/CartIcon';
 import Sidebar from '@components/Sidebar';
-import React, { createContext, Dispatch, useReducer, useState } from 'react';
+import { useReducer, useState } from 'react';
 import { PrimaryButton } from '@components/PrimaryButton';
 import CartBasket from '@components/CartBasket';
 import { GlobalStateContext, storeReducer } from '@context/reducer';
+import { v4 } from 'uuid';
 
 const Home: NextPage = () => {
   const [sideBarShown, showSidebar] = useState(false);
@@ -67,7 +68,7 @@ const Home: NextPage = () => {
                 dispatch({
                   type: 'Insert',
                   payload: {
-                    id: state.items.length,
+                    id: v4(),
                     image: '/image-product-1.jpg',
                     name: 'Autumn Limited Edition Sneakers',
                     price: 125.0,

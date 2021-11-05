@@ -4,7 +4,7 @@ export interface RootState {
 }
 
 export interface CartItem {
-  id: number;
+  id: string;
   name: string;
   image: string;
   price: number;
@@ -13,5 +13,5 @@ export interface CartItem {
 
 export interface Action {
   type: 'Insert' | 'Delete' | 'Checkout' | 'IncrementCount' | 'DecrementCount';
-  payload?: CartItem | number;
+  payload?: CartItem | string;
 }

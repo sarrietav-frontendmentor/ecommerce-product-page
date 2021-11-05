@@ -6,7 +6,7 @@ export const storeReducer = (state: RootState, action: Action): RootState => {
     case 'Insert':
       if (
         typeof action.payload === 'undefined' ||
-        typeof action.payload === 'number'
+        typeof action.payload === 'string'
       )
         throw new Error('Must be a CartItem');
       return {
@@ -14,7 +14,7 @@ export const storeReducer = (state: RootState, action: Action): RootState => {
         items: insertItem(state.items, action.payload),
       };
     case 'Delete':
-      if (typeof action.payload !== 'number')
+      if (typeof action.payload !== 'string')
         throw new Error('Must be a number');
       return { ...state, items: deleteItem(state.items, action.payload) };
     case 'Checkout':
@@ -33,11 +33,10 @@ export const GlobalStateContext = createContext<{
   dispatch: Dispatch<Action>;
 }>({ state: { currentCount: 0, items: [] }, dispatch: () => {} });
 
-const insertItem = (state: CartItem[], payload: CartItem) => {
-  // Set new CartItem.id to the last index of the array.
-  payload.id = state.length;
-  return [...state, payload];
-};
+const insertItem = (state: CartItem[], payload: CartItem) => [
+  ...state,
+  payload,
+];
 
-const deleteItem = (state: CartItem[], payload: number) =>
+const deleteItem = (state: CartItem[], payload: string) =>
   state.filter((item) => item.id !== payload);
