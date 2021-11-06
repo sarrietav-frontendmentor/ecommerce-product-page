@@ -45,6 +45,7 @@ const PreviousIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
     width="12"
     height="18"
     xmlns="http://www.w3.org/2000/svg"
+    data-testid="back-icon"
     onClick={onClick}
   >
     <path
@@ -63,6 +64,7 @@ const NextIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
     height="18"
     xmlns="http://www.w3.org/2000/svg"
     onClick={onClick}
+    data-testid="next-icon"
   >
     <path
       d="m2 1 8 8-8 8"
