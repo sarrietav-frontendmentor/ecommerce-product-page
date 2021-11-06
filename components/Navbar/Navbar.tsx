@@ -25,6 +25,7 @@ export const Navbar = ({
           className="mr-4"
           fillColor="gray"
           onClick={() => showCartBasket(!cartBasketShown)}
+          dataTestId="cart-icon"
         />
       </div>
       <Image src="/image-avatar.png" alt="User avatar" height={25} width={25} />
