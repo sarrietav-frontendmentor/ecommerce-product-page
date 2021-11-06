@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { GlobalStateContext } from '@/context/reducer';
 import { Dispatch, MouseEventHandler, useContext } from 'react';
 import { Action, CartItem } from 'types/reducer';
-import { PrimaryButton } from './PrimaryButton';
+import { PrimaryButton } from '../PrimaryButton';
 
 const CartBasket = () => {
   const { state, dispatch } = useContext(GlobalStateContext);

@@ -1,13 +1,13 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import Navbar from '@/components/Navbar';
-import Carousel from '@/components/Carousel';
-import ItemCounter from '@/components/ItemCounter';
+import Navbar from '@/components/Navbar/Navbar';
+import Carousel from '@/components/Carousel/Carousel';
+import ItemCounter from '@/components/ItemCounter/ItemCounter';
 import { CartIcon } from '@/components/CartIcon';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/Sidebar/Sidebar';
 import { useReducer, useState } from 'react';
 import { PrimaryButton } from '@/components/PrimaryButton';
-import CartBasket from '@/components/CartBasket';
+import CartBasket from '@/components/CartBasket/CartBasket';
 import { GlobalStateContext, storeReducer } from '@/context/reducer';
 import { v4 } from 'uuid';
 
