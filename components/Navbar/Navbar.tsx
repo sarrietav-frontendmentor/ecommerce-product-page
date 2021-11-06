@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Dispatch, MouseEventHandler, SetStateAction, useContext } from 'react';
 import { CartIcon } from '../CartIcon';
 
-const Navbar = ({
+export const Navbar = ({
   showCartBasket,
   showSidebar,
   cartBasketShown,
@@ -30,8 +30,6 @@ const Navbar = ({
     </div>
   </nav>
 );
-
-export default Navbar;
 
 const MenuIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
   <svg

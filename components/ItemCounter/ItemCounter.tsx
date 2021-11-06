@@ -1,7 +1,7 @@
 import { GlobalStateContext } from '@/context/reducer';
 import { MouseEventHandler, useContext } from 'react';
 
-const ItemCounter = () => {
+export const ItemCounter = () => {
   const { state, dispatch } = useContext(GlobalStateContext);
 
   const handleMinusClick = () => {
@@ -17,8 +17,6 @@ const ItemCounter = () => {
     </div>
   );
 };
-
-export default ItemCounter;
 
 const MinusIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
   <svg

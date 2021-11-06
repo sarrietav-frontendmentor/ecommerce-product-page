@@ -7,7 +7,7 @@ interface ImageLinkedListNode {
   after: number;
 }
 
-const Carousel = () => {
+export const Carousel = () => {
   const imageLinkedList: ImageLinkedListNode[] = [
     { before: 3, src: '/image-product-1.jpg', after: 1 },
     { before: 0, src: '/image-product-2.jpg', after: 2 },
@@ -39,8 +39,6 @@ const Carousel = () => {
     </div>
   );
 };
-
-export default Carousel;
 
 const PreviousIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
   <svg
