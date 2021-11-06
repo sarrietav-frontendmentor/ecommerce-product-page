@@ -25,6 +25,7 @@ const MinusIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     onClick={onClick}
+    data-testid="minus-icon"
   >
     <defs>
       <path
@@ -43,6 +44,7 @@ const PlusIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     onClick={onClick}
+    data-testid="plus-icon"
   >
     <defs>
       <path
