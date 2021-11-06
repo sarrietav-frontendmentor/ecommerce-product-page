@@ -20,7 +20,7 @@ export const BasketItem = ({
     <div className="flex flex-col w-48 ml-4">
       <p className="truncate">{item.name}</p>
       <p className="tracking-wider">
-        ${item.price.toFixed(2)} x {item.quantity}{' '}
+        <span>${item.price.toFixed(2)}</span> x <span>{item.quantity}</span>{' '}
         <span className="font-bold">
           ${(item.price * item.quantity).toFixed(2)}
         </span>
