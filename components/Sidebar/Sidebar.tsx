@@ -1,6 +1,10 @@
 import { MouseEventHandler } from 'react';
 
-const Sidebar = ({ setShown }: { setShown: (shown: boolean) => void }) => {
+export const Sidebar = ({
+  setShown,
+}: {
+  setShown: (shown: boolean) => void;
+}) => {
   return (
     <>
       <div
@@ -40,8 +44,6 @@ const Sidebar = ({ setShown }: { setShown: (shown: boolean) => void }) => {
     </>
   );
 };
-
-export default Sidebar;
 
 const CloseIcon = ({
   className,

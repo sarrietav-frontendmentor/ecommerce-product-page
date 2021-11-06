@@ -1,15 +1,17 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import Navbar from '@/components/Navbar/Navbar';
-import Carousel from '@/components/Carousel/Carousel';
-import ItemCounter from '@/components/ItemCounter/ItemCounter';
+import { v4 } from 'uuid';
+
+import { GlobalStateContext, storeReducer } from '@/context/reducer';
+
+import { Navbar } from '@/components/Navbar/Navbar';
+import { Carousel } from '@/components/Carousel/Carousel';
+import { ItemCounter } from '@/components/ItemCounter/ItemCounter';
 import { CartIcon } from '@/components/CartIcon';
-import Sidebar from '@/components/Sidebar/Sidebar';
+import { Sidebar } from '@/components/Sidebar/Sidebar';
 import { useReducer, useState } from 'react';
 import { PrimaryButton } from '@/components/PrimaryButton';
-import CartBasket from '@/components/CartBasket/CartBasket';
-import { GlobalStateContext, storeReducer } from '@/context/reducer';
-import { v4 } from 'uuid';
+import { CartBasket } from '@/components/CartBasket/CartBasket';
 
 const Home: NextPage = () => {
   const [sideBarShown, showSidebar] = useState(false);

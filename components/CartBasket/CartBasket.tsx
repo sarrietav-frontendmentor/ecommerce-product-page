@@ -4,7 +4,7 @@ import { Dispatch, MouseEventHandler, useContext } from 'react';
 import { Action, CartItem } from 'types/reducer';
 import { PrimaryButton } from '../PrimaryButton';
 
-const CartBasket = () => {
+export const CartBasket = () => {
   const { state, dispatch } = useContext(GlobalStateContext);
 
   return (
@@ -34,8 +34,6 @@ const CartBasket = () => {
     </div>
   );
 };
-
-export default CartBasket;
 
 const BasketItem = ({
   item,
