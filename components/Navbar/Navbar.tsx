@@ -1,7 +1,8 @@
-import { GlobalStateContext } from '@/context/reducer';
-import Image from 'next/image';
 import { Dispatch, MouseEventHandler, SetStateAction, useContext } from 'react';
-import { CartIcon } from '../CartIcon';
+import Image from 'next/image';
+
+import { GlobalStateContext } from '@/context/reducer';
+import { CartIcon } from '@/components/CartIcon';
 
 export const Navbar = ({
   showCartBasket,
