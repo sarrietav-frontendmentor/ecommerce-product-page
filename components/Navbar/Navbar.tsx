@@ -25,6 +25,7 @@ export const Navbar = ({
           className="mr-4"
           fillColor="gray"
           onClick={() => showCartBasket(!cartBasketShown)}
+          dataTestId="cart-icon"
         />
       </div>
       <Image src="/image-avatar.png" alt="User avatar" height={25} width={25} />
@@ -38,6 +39,7 @@ const MenuIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
     height="15"
     xmlns="http://www.w3.org/2000/svg"
     onClick={onClick}
+    data-testid="menu-icon"
   >
     <path
       d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z"

@@ -47,6 +47,7 @@ const TrashIcon = ({
     xmlnsXlink="http://www.w3.org/1999/xlink"
     className={className}
     onClick={onClick}
+    data-testid="trash-icon"
   >
     <defs>
       <path
