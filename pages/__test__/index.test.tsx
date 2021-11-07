@@ -90,6 +90,29 @@ describe('test application', () => {
     });
   });
 
+  describe('test removing items from the cart', () => {
+    it('deletes one item from the cart', () => {
+      render(<Home />);
+
+      const plusButton = screen.getByTestId('plus-icon');
+      const button = screen.getByRole('button');
+
+      for (let i = 0; i < 3; i++) {
+        addQuantity(plusButton, { times: 5 });
+        postToCart(button);
+      }
+
+      openCart();
+
+      const trashIcon = screen.getAllByTestId('trash-icon')[0];
+      fireEvent.click(trashIcon);
+
+      expect(
+        screen.getAllByText('Autumn Limited Edition Sneakers').length,
+      ).toBe(2);
+    });
+  });
+
   describe('test basket functionality', () => {
     it('opens the cart basket', () => {
       render(<Home />);
