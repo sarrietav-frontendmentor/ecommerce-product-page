@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { transcode } from 'buffer';
 import Home from '..';
 
 describe('test application', () => {
@@ -43,31 +44,7 @@ describe('test application', () => {
     });
   });
 
-  describe('test basket functionality', () => {
-    it('opens the cart basket', () => {
-      render(<Home />);
-
-      const cartIcon = screen.getByTestId('cart-icon');
-      fireEvent.click(cartIcon);
-
-      expect(screen.getByText('Your cart is empty.')).toBeInTheDocument();
-    });
-  });
-
   describe('test adding items to the cart', () => {
-    const openCart = () => {
-      const cartIcon = screen.getByTestId('cart-icon');
-      fireEvent.click(cartIcon);
-    };
-
-    const addQuantity = (plusButton: HTMLElement, { times = 1 }) => {
-      for (let i = 0; i < times; i++) fireEvent.click(plusButton);
-    };
-
-    const postToCart = (button = screen.getByRole('button')) => {
-      fireEvent.click(button);
-    };
-
     it("doesn't add items if the quantity is 0", () => {
       render(<Home />);
 
@@ -112,4 +89,45 @@ describe('test application', () => {
       ).toBe(3);
     });
   });
+
+  describe('test basket functionality', () => {
+    it('opens the cart basket', () => {
+      render(<Home />);
+
+      const cartIcon = screen.getByTestId('cart-icon');
+      fireEvent.click(cartIcon);
+
+      expect(screen.getByText('Your cart is empty.')).toBeInTheDocument();
+    });
+
+    it('checks out the cart', () => {
+      render(<Home />);
+
+      const plusButton = screen.getByTestId('plus-icon');
+      const button = screen.getByRole('button');
+
+      addQuantity(plusButton, { times: 5 });
+      postToCart(button);
+
+      openCart();
+
+      const checkOutButton = screen.getByText('Checkout');
+      fireEvent.click(checkOutButton);
+
+      expect(screen.getByText('Your cart is empty.')).toBeInTheDocument();
+    });
+  });
 });
+
+const openCart = () => {
+  const cartIcon = screen.getByTestId('cart-icon');
+  fireEvent.click(cartIcon);
+};
+
+const addQuantity = (plusButton: HTMLElement, { times = 1 }) => {
+  for (let i = 0; i < times; i++) fireEvent.click(plusButton);
+};
+
+const postToCart = (button = screen.getByRole('button')) => {
+  fireEvent.click(button);
+};
