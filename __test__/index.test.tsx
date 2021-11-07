@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import Home from '..';
+import Home from '../pages';
 
 describe('test application', () => {
   describe('test sidebar functionlity', () => {
