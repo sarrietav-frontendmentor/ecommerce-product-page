@@ -19,6 +19,35 @@ export const Navbar = ({
         <MenuIcon onClick={() => showSidebar(true)} />
       </div>
       <Logo />
+      <div className="hidden lg:block">
+        <ul className="ml-10 list-none space-x-8 flex items-center">
+          <li>
+            <a href="#" className="text-gray-600 text-lg cursor-pointer">
+              Collections
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-600 text-lg cursor-pointer">
+              Men
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-600 text-lg cursor-pointer">
+              Women
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-600 text-lg cursor-pointer">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-gray-600 text-lg cursor-pointer">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div className="flex items-center">
       <div className="relative">
