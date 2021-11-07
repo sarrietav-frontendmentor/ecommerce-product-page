@@ -14,40 +14,38 @@ export const Navbar = ({
   cartBasketShown: boolean;
 }) => (
   <nav className="w-full flex justify-between items-center px-7 lg:px-24 py-6 lg:py-9">
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center space-x-10">
       <div className="lg:hidden">
         <MenuIcon onClick={() => showSidebar(true)} />
       </div>
       <Logo />
-      <div className="hidden lg:block">
-        <ul className="ml-10 list-none space-x-8 flex items-center">
-          <li>
-            <a href="#" className="text-gray-600 text-lg cursor-pointer">
-              Collections
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-gray-600 text-lg cursor-pointer">
-              Men
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-gray-600 text-lg cursor-pointer">
-              Women
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-gray-600 text-lg cursor-pointer">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-gray-600 text-lg cursor-pointer">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div>
+      <ul className="hidden list-none space-x-8 lg:flex items-center">
+        <li>
+          <a href="#" className="text-gray-600 text-lg cursor-pointer">
+            Collections
+          </a>
+        </li>
+        <li>
+          <a href="#" className="text-gray-600 text-lg cursor-pointer">
+            Men
+          </a>
+        </li>
+        <li>
+          <a href="#" className="text-gray-600 text-lg cursor-pointer">
+            Women
+          </a>
+        </li>
+        <li>
+          <a href="#" className="text-gray-600 text-lg cursor-pointer">
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#" className="text-gray-600 text-lg cursor-pointer">
+            Contact
+          </a>
+        </li>
+      </ul>
     </div>
     <div className="flex items-center">
       <div className="relative">
