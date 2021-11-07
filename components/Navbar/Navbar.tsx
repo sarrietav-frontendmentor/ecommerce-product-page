@@ -15,7 +15,9 @@ export const Navbar = ({
 }) => (
   <nav className="w-full flex justify-between items-center  px-7 py-6">
     <div className="flex items-center space-x-4">
-      <MenuIcon onClick={() => showSidebar(true)} />
+      <div className="lg:hidden">
+        <MenuIcon onClick={() => showSidebar(true)} />
+      </div>
       <Logo />
     </div>
     <div className="flex items-center">
