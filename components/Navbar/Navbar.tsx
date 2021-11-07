@@ -47,7 +47,7 @@ export const Navbar = ({
         </li>
       </ul>
     </div>
-    <div className="flex items-center">
+    <div className="flex items-center lg:space-x-6">
       <div className="relative">
         <ToolTip />
         <CartIcon
@@ -57,7 +57,14 @@ export const Navbar = ({
           dataTestId="cart-icon"
         />
       </div>
-      <Image src="/image-avatar.png" alt="User avatar" height={25} width={25} />
+      <div className="w-6 h-6 lg:w-10 lg:h-10 relative">
+        <Image
+          src="/image-avatar.png"
+          alt="User avatar"
+          layout="fill"
+          objectFit="contain"
+        />
+      </div>
     </div>
   </nav>
 );
