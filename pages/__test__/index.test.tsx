@@ -100,7 +100,7 @@ describe('test application', () => {
       const plusButton = screen.getByTestId('plus-icon');
       const button = screen.getByRole('button');
 
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 3; i++) {
         addQuantity(plusButton, { times: 5 });
         postToCart(button);
       }
@@ -109,7 +109,7 @@ describe('test application', () => {
 
       expect(
         screen.getAllByText('Autumn Limited Edition Sneakers').length,
-      ).toBe(5);
+      ).toBe(3);
     });
   });
 });
