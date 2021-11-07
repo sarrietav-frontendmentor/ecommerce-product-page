@@ -27,12 +27,12 @@ export const Carousel = () => {
         priority
         className="lg:rounded-xl"
       />
-      <div className="absolute top-2/4 left-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
+      <div className="lg:hidden absolute top-2/4 left-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
         <PreviousIcon
           onClick={() => setCurrentImage(imageLinkedList[currentImage.before])}
         />
       </div>
-      <div className="absolute top-2/4 right-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
+      <div className="lg:hidden absolute top-2/4 right-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
         <NextIcon
           onClick={() => setCurrentImage(imageLinkedList[currentImage.after])}
         />
