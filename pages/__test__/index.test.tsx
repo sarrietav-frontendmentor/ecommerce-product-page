@@ -59,7 +59,7 @@ describe('test application', () => {
       render(<Home />);
 
       const plusButton = screen.getByTestId('plus-icon');
-      addQuantity(plusButton, { times: 1 });
+      addQuantity(plusButton);
 
       postToCart();
 
@@ -78,7 +78,7 @@ describe('test application', () => {
       const button = screen.getByRole('button');
 
       for (let i = 0; i < 3; i++) {
-        addQuantity(plusButton, { times: 5 });
+        addQuantity(plusButton);
         postToCart(button);
       }
 
@@ -98,7 +98,7 @@ describe('test application', () => {
       const button = screen.getByRole('button');
 
       for (let i = 0; i < 3; i++) {
-        addQuantity(plusButton, { times: 5 });
+        addQuantity(plusButton);
         postToCart(button);
       }
 
@@ -129,7 +129,7 @@ describe('test application', () => {
       const plusButton = screen.getByTestId('plus-icon');
       const button = screen.getByRole('button');
 
-      addQuantity(plusButton, { times: 5 });
+      addQuantity(plusButton);
       postToCart(button);
 
       openCart();
@@ -147,8 +147,8 @@ const openCart = () => {
   fireEvent.click(cartIcon);
 };
 
-const addQuantity = (plusButton: HTMLElement, { times = 1 }) => {
-  for (let i = 0; i < times; i++) fireEvent.click(plusButton);
+const addQuantity = (plusButton: HTMLElement) => {
+  fireEvent.click(plusButton);
 };
 
 const postToCart = (button = screen.getByRole('button')) => {
