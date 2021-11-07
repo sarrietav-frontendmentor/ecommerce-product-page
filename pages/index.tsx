@@ -45,6 +45,19 @@ const Home: NextPage = () => {
       });
   };
 
+  const NavbarFragment = () => (
+    <>
+      {cartBasketShown && <CartBasketOverlay />}
+      {sideBarShown && <Sidebar setShown={showSidebar} />}
+      {cartBasketShown && <CartBasket />}
+      <Navbar
+        cartBasketShown={cartBasketShown}
+        showSidebar={showSidebar}
+        showCartBasket={showCartBasket}
+      />
+    </>
+  );
+
   return (
     <div className="font-kumbh mb-7 relative">
       <Head>
@@ -65,14 +78,7 @@ const Home: NextPage = () => {
       </Head>
 
       <GlobalStateContext.Provider value={{ state, dispatch }}>
-        {cartBasketShown && <CartBasketOverlay />}
-        {sideBarShown && <Sidebar setShown={showSidebar} />}
-        {cartBasketShown && <CartBasket />}
-        <Navbar
-          cartBasketShown={cartBasketShown}
-          showSidebar={showSidebar}
-          showCartBasket={showCartBasket}
-        />
+        <NavbarFragment />
         <main>
           <Carousel />
           <div className="p-6">
