@@ -13,7 +13,7 @@ export const Navbar = ({
   showSidebar: Dispatch<SetStateAction<boolean>>;
   cartBasketShown: boolean;
 }) => (
-  <nav className="w-full flex justify-between items-center  px-7 py-6">
+  <nav className="w-full flex justify-between items-center px-7 lg:px-24 py-6 lg:py-9">
     <div className="flex items-center space-x-4">
       <div className="lg:hidden">
         <MenuIcon onClick={() => showSidebar(true)} />
