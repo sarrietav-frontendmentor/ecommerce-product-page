@@ -6,11 +6,7 @@ describe('test application', () => {
     it('renders without the sidebar', () => {
       render(<Home />);
 
-      expect(screen.queryByText('Collections')).not.toBeInTheDocument();
-      expect(screen.queryByText('Men')).not.toBeInTheDocument();
-      expect(screen.queryByText('Women')).not.toBeInTheDocument();
-      expect(screen.queryByText('About')).not.toBeInTheDocument();
-      expect(screen.queryByText('Contact')).not.toBeInTheDocument();
+      expect(screen.queryByTestId('close-icon')).not.toBeInTheDocument();
     });
 
     it('opens the sidebar when clicking the menu icon', () => {
@@ -19,11 +15,7 @@ describe('test application', () => {
       const menuIcon = screen.getByTestId('menu-icon');
       fireEvent.click(menuIcon);
 
-      expect(screen.getByText('Collections')).toBeInTheDocument();
-      expect(screen.getByText('Men')).toBeInTheDocument();
-      expect(screen.getByText('Women')).toBeInTheDocument();
-      expect(screen.getByText('About')).toBeInTheDocument();
-      expect(screen.getByText('Contact')).toBeInTheDocument();
+      expect(screen.queryByTestId('close-icon')).toBeInTheDocument();
     });
 
     it('closes the sidebar', () => {
@@ -35,11 +27,7 @@ describe('test application', () => {
       const closeIcon = screen.getByTestId('close-icon');
       fireEvent.click(closeIcon);
 
-      expect(screen.queryByText('Collections')).not.toBeInTheDocument();
-      expect(screen.queryByText('Men')).not.toBeInTheDocument();
-      expect(screen.queryByText('Women')).not.toBeInTheDocument();
-      expect(screen.queryByText('About')).not.toBeInTheDocument();
-      expect(screen.queryByText('Contact')).not.toBeInTheDocument();
+      expect(closeIcon).not.toBeInTheDocument();
     });
   });
 
