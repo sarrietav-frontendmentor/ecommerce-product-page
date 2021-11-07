@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+
 import { BasketItem } from '../BasketItem';
 
 describe('test BasketItem component', () => {
@@ -32,7 +33,7 @@ describe('test BasketItem component', () => {
   it('renders the total price correctly', () => {
     expect(screen.getByText('$625.00')).toBeInTheDocument();
   });
-
+  
   it('deletes itself', () => {
     const trashIcon = screen.getByTestId('trash-icon');
 
