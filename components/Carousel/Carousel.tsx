@@ -4,15 +4,36 @@ import { MouseEventHandler, useState } from 'react';
 interface ImageLinkedListNode {
   before: number;
   src: string;
+  thumbnailSrc: string;
   after: number;
 }
 
 export const Carousel = () => {
   const imageLinkedList: ImageLinkedListNode[] = [
-    { before: 3, src: '/image-product-1.jpg', after: 1 },
-    { before: 0, src: '/image-product-2.jpg', after: 2 },
-    { before: 1, src: '/image-product-3.jpg', after: 3 },
-    { before: 2, src: '/image-product-4.jpg', after: 0 },
+    {
+      before: 3,
+      src: '/image-product-1.jpg',
+      thumbnailSrc: '/image-product-1-thumbnail.jpg',
+      after: 1,
+    },
+    {
+      before: 0,
+      src: '/image-product-2.jpg',
+      thumbnailSrc: '/image-product-2-thumbnail.jpg',
+      after: 2,
+    },
+    {
+      before: 1,
+      src: '/image-product-3.jpg',
+      thumbnailSrc: '/image-product-3-thumbnail.jpg',
+      after: 3,
+    },
+    {
+      before: 2,
+      src: '/image-product-4.jpg',
+      thumbnailSrc: '/image-product-4-thumbnail.jpg',
+      after: 0,
+    },
   ];
 
   const [currentImage, setCurrentImage] = useState(imageLinkedList[0]);
@@ -55,7 +76,7 @@ export const Carousel = () => {
               <div className="w-full h-full bg-white z-10 absolute bg-opacity-60 rounded-lg"></div>
             )}
             <Image
-              src={image.src}
+              src={image.thumbnailSrc}
               layout="fill"
               objectFit="cover"
               alt="Shoes"
