@@ -4,7 +4,7 @@ import { Carousel } from '../Carousel';
 describe('test Carousel component', () => {
   it('renders with initial image', () => {
     render(<Carousel />);
-    const image = screen.getByRole('img');
+    const image = screen.getByTestId('main-image');
 
     expect(image).toHaveAttribute(
       'src',
@@ -17,7 +17,7 @@ describe('test Carousel component', () => {
     const backButton = screen.getByTestId('back-icon');
 
     fireEvent.click(backButton);
-    const image = screen.getByRole('img');
+    const image = screen.getByTestId('main-image');
 
     expect(image).toHaveAttribute(
       'src',
@@ -30,7 +30,7 @@ describe('test Carousel component', () => {
     const nextButton = screen.getByTestId('next-icon');
 
     fireEvent.click(nextButton);
-    const image = screen.getByRole('img');
+    const image = screen.getByTestId('main-image');
 
     expect(image).toHaveAttribute(
       'src',
@@ -44,7 +44,7 @@ describe('test Carousel component', () => {
 
     fireEvent.click(nextButton);
     fireEvent.click(nextButton);
-    const image = screen.getByRole('img');
+    const image = screen.getByTestId('main-image');
 
     expect(image).toHaveAttribute(
       'src',
@@ -57,11 +57,26 @@ describe('test Carousel component', () => {
     const nextButton = screen.getByTestId('next-icon');
 
     for (let i = 0; i < 4; i++) fireEvent.click(nextButton);
-    const image = screen.getByRole('img');
+    const image = screen.getByTestId('main-image');
 
     expect(image).toHaveAttribute(
       'src',
       expect.stringContaining('image-product-1.jpg'),
+    );
+  });
+
+  it('change the image when clicking thubnail', () => {
+    render(<Carousel />);
+
+    const secondThumbnail = screen.getAllByTestId('image-thumbnail')[1];
+
+    fireEvent.click(secondThumbnail);
+
+    const mainImage = screen.getByTestId('main-image');
+
+    expect(mainImage).toHaveAttribute(
+      'src',
+      expect.stringContaining('image-product-2'),
     );
   });
 });
