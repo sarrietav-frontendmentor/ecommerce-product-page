@@ -44,7 +44,16 @@ export const Carousel = () => {
       </div>
       <div className="hidden lg:flex space-x-6">
         {imageLinkedList.map((image, index) => (
-          <div className="w-20 h-20 relative" key={index}>
+          <div
+            key={index}
+            className={`w-20 h-20 relative rounded-xl ${
+              image.src === currentImage.src &&
+              'border-4 border-yellow-600 border-solid'
+            }`}
+          >
+            {image.src === currentImage.src && (
+              <div className="w-full h-full bg-white z-10 absolute bg-opacity-60 rounded-lg"></div>
+            )}
             <Image
               src={image.src}
               layout="fill"
