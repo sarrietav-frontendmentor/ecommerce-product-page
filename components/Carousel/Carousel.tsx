@@ -60,6 +60,7 @@ export const Carousel = () => {
               objectFit="cover"
               alt="Shoes"
               className="rounded-lg"
+              data-testid="image-thumbnail"
               onClick={() => setCurrentImage(image)}
             />
           </div>

@@ -64,4 +64,19 @@ describe('test Carousel component', () => {
       expect.stringContaining('image-product-1.jpg'),
     );
   });
+
+  it('change the image when clicking thubnail', () => {
+    render(<Carousel />);
+
+    const secondThumbnail = screen.getAllByTestId('image-thumbnail')[1];
+
+    fireEvent.click(secondThumbnail);
+
+    const mainImage = screen.getByTestId('main-image');
+
+    expect(mainImage).toHaveAttribute(
+      'src',
+      expect.stringContaining('image-product-2'),
+    );
+  });
 });
