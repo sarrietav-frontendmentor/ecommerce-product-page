@@ -79,7 +79,7 @@ const Home: NextPage = () => {
 
       <GlobalStateContext.Provider value={{ state, dispatch }}>
         <NavbarFragment />
-        <main className="lg:flex items-center lg:px-36 flex-grow space-x-28">
+        <main className="lg:flex items-center lg:px-36 flex-grow lg:space-x-28">
           <Carousel />
           <div className="p-6">
             <ProductDescription />
