@@ -65,26 +65,12 @@ export const Carousel = () => {
       </div>
       <div className="hidden lg:flex space-x-6">
         {imageLinkedList.map((image, index) => (
-          <div
+          <CarouselThumbnail
             key={index}
-            className={`w-20 h-20 relative rounded-xl ${
-              image.src === currentImage.src &&
-              'border-4 border-yellow-600 border-solid'
-            }`}
-          >
-            {image.src === currentImage.src && (
-              <div className="w-full h-full bg-white z-10 absolute bg-opacity-60 rounded-lg"></div>
-            )}
-            <Image
-              src={image.thumbnailSrc}
-              layout="fill"
-              objectFit="cover"
-              alt="Shoes"
-              className="rounded-lg"
-              data-testid="image-thumbnail"
-              onClick={() => setCurrentImage(image)}
-            />
-          </div>
+            image={image}
+            currentImage={currentImage}
+            setCurrentImage={setCurrentImage}
+          />
         ))}
       </div>
     </div>
@@ -125,4 +111,34 @@ const NextIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
       fillRule="evenodd"
     />
   </svg>
+);
+
+const CarouselThumbnail = ({
+  image,
+  currentImage,
+  setCurrentImage,
+}: {
+  image: ImageLinkedListNode;
+  currentImage: ImageLinkedListNode;
+  setCurrentImage: (image: ImageLinkedListNode) => void;
+}): JSX.Element => (
+  <div
+    className={`w-20 h-20 relative rounded-xl ${
+      image.src === currentImage.src &&
+      'border-4 border-yellow-600 border-solid'
+    }`}
+  >
+    {image.src === currentImage.src && (
+      <div className="w-full h-full bg-white z-10 absolute bg-opacity-60 rounded-lg"></div>
+    )}
+    <Image
+      src={image.thumbnailSrc}
+      layout="fill"
+      objectFit="cover"
+      alt="Shoes"
+      className="rounded-lg"
+      data-testid="image-thumbnail"
+      onClick={() => setCurrentImage(image)}
+    />
+  </div>
 );
