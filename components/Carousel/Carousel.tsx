@@ -27,6 +27,7 @@ export const Carousel = () => {
           objectFit="cover"
           priority
           className="lg:rounded-xl"
+          data-testid="main-image"
         />
         <div className="lg:hidden absolute top-2/4 left-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
           <PreviousIcon
