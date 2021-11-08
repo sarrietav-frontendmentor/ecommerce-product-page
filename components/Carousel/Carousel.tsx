@@ -18,24 +18,41 @@ export const Carousel = () => {
   const [currentImage, setCurrentImage] = useState(imageLinkedList[0]);
 
   return (
-    <div className="relative w-full h-80">
-      <Image
-        src={currentImage.src}
-        alt="Shoes"
-        layout="fill"
-        objectFit="cover"
-        priority
-        className="lg:rounded-xl"
-      />
-      <div className="lg:hidden absolute top-2/4 left-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
-        <PreviousIcon
-          onClick={() => setCurrentImage(imageLinkedList[currentImage.before])}
+    <div className="flex flex-col space-y-7">
+      <div className="relative w-full h-96">
+        <Image
+          src={currentImage.src}
+          alt="Shoes"
+          layout="fill"
+          objectFit="cover"
+          priority
+          className="lg:rounded-xl"
         />
+        <div className="lg:hidden absolute top-2/4 left-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
+          <PreviousIcon
+            onClick={() =>
+              setCurrentImage(imageLinkedList[currentImage.before])
+            }
+          />
+        </div>
+        <div className="lg:hidden absolute top-2/4 right-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
+          <NextIcon
+            onClick={() => setCurrentImage(imageLinkedList[currentImage.after])}
+          />
+        </div>
       </div>
-      <div className="lg:hidden absolute top-2/4 right-4 bg-white h-10 w-10 rounded-full flex justify-center items-center">
-        <NextIcon
-          onClick={() => setCurrentImage(imageLinkedList[currentImage.after])}
-        />
+      <div className="hidden lg:flex space-x-6">
+        {imageLinkedList.map((image, index) => (
+          <div className="w-20 h-20 relative" key={index}>
+            <Image
+              src={image.src}
+              layout="fill"
+              objectFit="cover"
+              alt="Shoes"
+              className="rounded-lg"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
