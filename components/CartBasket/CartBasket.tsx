@@ -9,7 +9,7 @@ export const CartBasket = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="rounded-xl absolute w-[95%] h-72 top-20 z-10 bg-white flex flex-col justify-start shadow-lg">
+      <div className="rounded-xl absolute w-[95%] lg:w-1/4 h-72 top-20 lg:right-10 z-10 bg-white flex flex-col justify-start shadow-lg">
         <h2 className="font-bold text-lg m-5">Cart</h2>
         <hr className="text-gray-300" />
         <div className="p-5 flex flex-col flex-grow last:justify-self-end">
