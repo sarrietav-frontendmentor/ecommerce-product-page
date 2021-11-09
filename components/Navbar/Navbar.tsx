@@ -57,7 +57,7 @@ export const Navbar = ({
           dataTestId="cart-icon"
         />
       </div>
-      <div className="w-6 h-6 lg:w-10 lg:h-10 relative">
+      <div className="w-6 h-6 lg:w-10 lg:h-10 relative rounded-full hover:ring ring-yellow-500 cursor-pointer">
         <Image
           src="/image-avatar.png"
           alt="User avatar"
