@@ -10,7 +10,7 @@ export const ItemCounter = () => {
   };
 
   return (
-    <div className="w-full flex justify-between items-center p-4 bg-red-300 bg-opacity-10 rounded-xl">
+    <div className="w-full lg:w-auto flex justify-between items-center p-4 bg-red-300 bg-opacity-10 rounded-xl">
       <MinusIcon onClick={handleMinusClick} />
       <span className="font-bold">{state.currentCount}</span>
       <PlusIcon onClick={() => dispatch({ type: 'IncrementCount' })} />

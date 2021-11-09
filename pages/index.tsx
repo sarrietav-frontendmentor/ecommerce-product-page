@@ -84,14 +84,18 @@ const Home: NextPage = () => {
           <div className="p-6">
             <ProductDescription />
             <ProductPrices />
-            <ItemCounter />
-            <div className="my-4">
-              <PrimaryButton onClick={handleAddToCart}>
-                <CartIcon fillColor="white" />
-                <span className="font-bold text-white tracking-wide">
-                  Add to cart
-                </span>
-              </PrimaryButton>
+            <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-5">
+              <div className="lg:w-36">
+                <ItemCounter />
+              </div>
+              <div className="my-4 flex-grow">
+                <PrimaryButton onClick={handleAddToCart}>
+                  <CartIcon fillColor="white" />
+                  <span className="font-bold text-white tracking-wide">
+                    Add to cart
+                  </span>
+                </PrimaryButton>
+              </div>
             </div>
           </div>
         </main>
