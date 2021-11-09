@@ -51,7 +51,7 @@ export const Navbar = ({
       <div className="relative">
         <ToolTip />
         <CartIcon
-          className="mr-4"
+          className="mr-4 cursor-pointer"
           fillColor="gray"
           onClick={() => showCartBasket(!cartBasketShown)}
           dataTestId="cart-icon"
