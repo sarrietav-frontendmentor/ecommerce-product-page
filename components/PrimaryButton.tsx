@@ -10,7 +10,7 @@ export const PrimaryButton = ({
   return (
     <button
       onClick={onClick}
-      className="bg-yellow-600 brightness-110 flex justify-center items-center w-full rounded-lg py-4 space-x-3 shadow-xl"
+      className="bg-yellow-600 hover:bg-yellow-500 brightness-110  flex justify-center items-center w-full rounded-lg py-5 space-x-3 shadow-xl"
     >
       {children}
     </button>

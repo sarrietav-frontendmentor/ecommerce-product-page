@@ -26,6 +26,7 @@ const MinusIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     onClick={onClick}
     data-testid="minus-icon"
+    className="cursor-pointer"
   >
     <defs>
       <path
@@ -45,6 +46,7 @@ const PlusIcon = ({ onClick }: { onClick?: MouseEventHandler }) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     onClick={onClick}
     data-testid="plus-icon"
+    className="cursor-pointer"
   >
     <defs>
       <path
