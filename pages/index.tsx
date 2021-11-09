@@ -108,7 +108,7 @@ const ProductDescription = () => (
       Sneaker Company
     </h2>
     <div>
-      <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-8">
+      <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 lg:mb-8">
         Fall Limited Edition Sneakers
       </h1>
     </div>
@@ -121,12 +121,14 @@ const ProductDescription = () => (
 );
 
 const ProductPrices = () => (
-  <div className="flex items-center my-5">
-    <span className="text-2xl font-bold text-gray-800">$125.00</span>
-    <span className="bg-yellow-500 bg-opacity-25 text-yellow-600 font-bold flex items-center self-center rounded px-2 ml-5">
-      50%
-    </span>
-    <span className="font-bold text-gray-300 ml-auto line-through">
+  <div className="flex lg:flex-col lg:justify-start items-center lg:items-start my-5">
+    <div className="flex">
+      <span className="text-2xl font-bold text-gray-800">$125.00</span>
+      <span className="bg-yellow-500 bg-opacity-25 text-yellow-600 font-bold flex items-center self-center rounded px-2 ml-5">
+        50%
+      </span>
+    </div>
+    <span className="font-bold text-gray-300 ml-auto lg:m-0 line-through">
       $250.00
     </span>
   </div>
