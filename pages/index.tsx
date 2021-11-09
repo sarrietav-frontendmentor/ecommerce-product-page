@@ -107,10 +107,12 @@ const ProductDescription = () => (
     <h2 className="uppercase font-bold text-yellow-600 tracking-widest text-sm">
       Sneaker Company
     </h2>
-    <h1 className="text-3xl lg:text-4xl font-bold text-gray-800">
-      Fall Limited Edition Sneakers
-    </h1>
-    <p className="text-gray-500 text-sm leading-relaxed">
+    <div>
+      <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-8">
+        Fall Limited Edition Sneakers
+      </h1>
+    </div>
+    <p className="text-gray-500 text-sm lg:text-base leading-relaxed">
       These low-profile sneakers are your perfect casual wear companion.
       Featuring a durable rubber outer sole, they&apos;ll withstand everything
       the weather can offer.
