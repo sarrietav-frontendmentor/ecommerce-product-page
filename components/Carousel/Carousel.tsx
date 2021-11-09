@@ -123,14 +123,18 @@ const CarouselThumbnail = ({
   setCurrentImage: (image: ImageLinkedListNode) => void;
 }): JSX.Element => (
   <div
-    className={`w-20 h-20 relative rounded-xl ${
+    onClick={() => setCurrentImage(image)}
+    className={`group w-20 h-20 relative rounded-xl cursor-pointer ${
       image.src === currentImage.src &&
       'border-4 border-yellow-600 border-solid'
     }`}
   >
-    {image.src === currentImage.src && (
-      <div className="w-full h-full bg-white z-10 absolute bg-opacity-60 rounded-lg"></div>
-    )}
+    <div
+      className={`group-hover:w-full group-hover:h-full bg-white z-10 absolute bg-opacity-60 rounded-lg ${
+        image.src === currentImage.src && 'w-full h-full'
+      }`}
+    ></div>
+
     <Image
       src={image.thumbnailSrc}
       layout="fill"
@@ -138,7 +142,6 @@ const CarouselThumbnail = ({
       alt="Shoes"
       className="rounded-lg"
       data-testid="image-thumbnail"
-      onClick={() => setCurrentImage(image)}
     />
   </div>
 );
