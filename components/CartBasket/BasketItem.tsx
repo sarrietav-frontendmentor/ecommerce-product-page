@@ -27,7 +27,7 @@ export const BasketItem = ({
       </p>
     </div>
     <TrashIcon
-      className="ml-auto"
+      className="ml-auto cursor-pointer"
       onClick={() => dispatch({ type: 'Delete', payload: item.id })}
     />
   </div>
